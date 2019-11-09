@@ -5,8 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://120.77.35.140:8080/yy',
+                success: function(data) {
+                    $("#id").html(data.id);
+                    $("#hitokoto").html(data.hitokoto);
+                    $("#from").html(data.from);
+                    $("#creator").html(data.creator);
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
+        .beautify {
+            margin-left: 5px;
+            padding: 2px;
+            background-color: #3498db;
+            color: #ecf0f1;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    Hello, World!
+    <p>ID<span id="id" class="beautify"></span></p>
+    <p>一言<span id="hitokoto" class="beautify"></span></p>
+    <p>来自<span id="from" class="beautify"></span></p>
+    <p>发布者<span id="creator" class="beautify"></span></p>
 </body>
 </html>
